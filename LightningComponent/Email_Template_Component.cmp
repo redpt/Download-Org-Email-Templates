@@ -1,0 +1,14 @@
+<aura:component controller="Email_Template_Controller">
+    <aura:attribute name="list" type="object"/>
+    <aura:attribute name="folderName" type="string" default="CSUG_Enrollment"/>
+    <aura:attribute name="size" type="integer"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    Size:{!v.size} <br/>
+    <aura:iteration items="{!v.list}" var ="folder">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;members&gt;{!folder.key}&lt;/members&gt;<br/>
+        <aura:iteration items="{!folder.listOfTemplateNames}" var ="templateName">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;members&gt;{!folder.key}/{!templateName}&lt;/members&gt;<br/>
+        </aura:iteration>
+    </aura:iteration>
+</aura:component>
